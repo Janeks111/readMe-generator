@@ -1,0 +1,24 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "ReadMe Generator will generate proffesional ReadMe file from simple inputs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Janeks111/readMe-generator.git"
+  },
+  "author": "Janeks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Janeks111/readMe-generator/issues"
+  },
+  "homepage": "https://github.com/Janeks111/readMe-generator#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^9.2.12",
+    "path": "^0.12.7"
+  }
+}
