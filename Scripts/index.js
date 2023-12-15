@@ -85,3 +85,17 @@ const questions = [
     },
   },
 ];
+
+function writeToFile(fileName, data) {
+  fs.writeFileSync(fileName, data);
+}
+
+function init() {
+  inquirer.prompt(questions).then((responses) => {
+    const markdown = generateMarkdown(responses);
+    writeToFile("README.md", markdownContent);
+    console.log("README.md has been successfully generated!");
+  });
+}
+
+init();
