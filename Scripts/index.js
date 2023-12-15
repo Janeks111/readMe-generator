@@ -3,6 +3,7 @@ const path = require("path");
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
+// array of questions for user input
 const questions = [
   {
     type: "input",
@@ -86,14 +87,21 @@ const questions = [
   },
 ];
 
+// Define function to write data to file
 function writeToFile(fileName, data) {
+  // Write data to file synchronously
   fs.writeFileSync(fileName, data);
 }
 
+// initialize function
 function init() {
+  // prompt user for responses
   inquirer.prompt(questions).then((responses) => {
+    // generate markdown from responses
     const markdown = generateMarkdown(responses);
+    // write markdown to README.md file
     writeToFile("README.md", markdownContent);
+    // log success message
     console.log("README.md has been successfully generated!");
   });
 }
