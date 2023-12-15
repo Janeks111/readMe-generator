@@ -1,6 +1,6 @@
-import fs from "fs";
-import path from "path";
-import inquirer from "inquirer";
+const fs = require("fs");
+const path = require("path");
+const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
 const questions = [
