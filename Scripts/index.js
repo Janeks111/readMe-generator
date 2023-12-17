@@ -4,30 +4,22 @@ const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
 // array of questions for user input
+
 const questions = [
   {
     type: "input",
     name: "title",
-    message: "What is the title of your project? (Required)",
-    validate: function (value) {
-      if (value === "") {
-        return console.log("Input cannot be empty");
-      } else {
-        return true;
-      }
-    },
+    message: "What is the title of your project?",
   },
   {
     type: "input",
     name: "description",
-    message: "Provide a description of your project. (Required)",
-    validate: function (value) {
-      if (value === "") {
-        return console.log("Input cannot be empty");
-      } else {
-        return true;
-      }
-    },
+    message: "Provide a description of your project:",
+  },
+  {
+    type: "input",
+    name: "installation",
+    message: "How do you install your project?",
   },
   {
     type: "input",
@@ -36,14 +28,8 @@ const questions = [
   },
   {
     type: "input",
-    name: "installation",
-    message: "How can you install your project?",
-  },
-  {
-    type: "input",
     name: "usage",
-    message:
-      "How do you use this application? Provide examples and screenshots if possible.",
+    message: "How do you use this application?",
   },
   {
     type: "list",
@@ -54,36 +40,23 @@ const questions = [
   {
     type: "input",
     name: "contributing",
-    message: `If applicable, provide guidelines on how to contribute to the project.`,
+    message:
+      "If applicable, provide guidelines on how to contribute to the project.",
   },
   {
     type: "input",
     name: "tests",
-    message: `How do you run tests on your project?`,
+    message: "How do you run tests on your project?",
   },
   {
     type: "input",
-    name: "githubUsername",
-    message: "Enter your GitHub username (Required)",
-    validate: function (value) {
-      if (value === "") {
-        return console.log("Input cannot be empty");
-      } else {
-        return true;
-      }
-    },
+    name: "github",
+    message: "What is your GitHub username?",
   },
   {
     type: "input",
-    name: "emailAddress",
-    message: "Enter your email address (Required)",
-    validate: function (value) {
-      if (value === "") {
-        return console.log("Input cannot be empty");
-      } else {
-        return true;
-      }
-    },
+    name: "email",
+    message: "What is your email address?",
   },
 ];
 
@@ -98,7 +71,7 @@ function init() {
   // prompt user for responses
   inquirer.prompt(questions).then((responses) => {
     // generate markdown from responses
-    const markdown = generateMarkdown(responses);
+    const markdownContent = generateMarkdown(responses);
     // write markdown to README.md file
     writeToFile("README.md", markdownContent);
     // log success message
